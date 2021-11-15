@@ -7,7 +7,17 @@ echo "생성할 그룹명을 입력 하세요."
 read group
 groupadd $group
 
-for i in {1..10..1}     # 알아서 숫자 변경 하시오. ex) {1..10..1} 1~10까지 1스택
+echo "시작값을 입력 하시오."
+read start
+
+echo "종료값을 입력 하시오."
+read end
+
+echo "---------------------"
+
+for i in `seq $start $end`     # user 생성 및 패스워드 그룹 지정
 do
-useradd sales$i -p $pass -g $group #sales부분은 알아서 잘 바꾸시오.
+useradd $group$i -p $pass -g $group 
 done
+
+tail -`expr $end - $start + 1` /etc/passwd # user 생성 확인
