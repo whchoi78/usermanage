@@ -7,7 +7,7 @@ echo "생성할 그룹명을 입력 하세요."
 read group
 groupadd $group
 
-for i in {1..10..1}     # 알아서 숫자 변경 하시오.
+for i in {1..10..1}     # 알아서 숫자 변경 하시오. ex) {1..10..1} 1~10까지 1스택
 do
-useradd sales$i -p $pass -g $group #sales부분 알아서 잘 바꾸시오.
+useradd sales$i -p $pass -g $group #sales부분은 알아서 잘 바꾸시오.
 done
